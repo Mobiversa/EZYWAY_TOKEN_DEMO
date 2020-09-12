@@ -1,6 +1,14 @@
 # EZYWAY_TOKEN_DEMO
 Combination of EZYWAY with EZYPOD
 
+Mandatory Gradle to Communicate with Server and SDK Library you can find under lib folder.
+
+    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.3.0'
+    //SDK Library Integration
+    implementation files('libs/ezyway_sdk_v4.2.aar')  
+
 To Communicate with the payment SDK crete the Following Object
 
      val payment: Payment = Payment()
