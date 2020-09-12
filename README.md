@@ -1,0 +1,2 @@
+# EZYWAY_TOKEN_DEMO
+Combination of EZYWAY with EZYPOD
