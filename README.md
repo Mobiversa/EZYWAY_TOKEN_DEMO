@@ -1,4 +1,4 @@
-# EZYWAY_TOKEN_DEMO
+# EZYWAY TOKEN DEMO APPLICATION
 Combination of EZYWAY with EZYPOD
 
 Mandatory Gradle to Communicate with Server and SDK Library you can find under lib folder.
