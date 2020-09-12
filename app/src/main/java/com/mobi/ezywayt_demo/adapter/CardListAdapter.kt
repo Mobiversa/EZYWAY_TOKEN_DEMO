@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
@@ -45,6 +46,9 @@ class CardListAdapter : RecyclerView.Adapter<CardListAdapter.ViewHolder> {
         holder.button_delete.setOnClickListener {
             (context as CardListActivity).deleteCard(dataList[position].walletId)
         }
+        holder.cardLinearLayout.setOnClickListener {
+            (context as CardListActivity).getCardDetail(dataList[position].walletId)
+        }
 
     }
 
@@ -55,5 +59,6 @@ class CardListAdapter : RecyclerView.Adapter<CardListAdapter.ViewHolder> {
         val text_expDate: AppCompatTextView = itemView.text_expDate
         val button_pay: AppCompatButton = itemView.button_pay
         val button_delete: AppCompatButton = itemView.button_delete
+        val cardLinearLayout: LinearLayout = itemView.card_linear
     }
 }

@@ -21,7 +21,6 @@ class CardListActivity : AppCompatActivity() {
     private var mProgressDialog: ProgressDialog? = null
 
     var mobiApiKey = "b07ad9f31df158edb188a41f725899bc" //for demo token
-    //    var mobiApiKey = "132fe8ed2715bc0fb4fe16c55acbd6d4" //for demo ezypod
     var username = "Mobiversa" // for demo
     val requestMap: HashMap<String, String> = HashMap()
 
@@ -35,12 +34,6 @@ class CardListActivity : AppCompatActivity() {
 
         card_list_rec.layoutManager =
             LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)
-        card_list_rec.addItemDecoration(
-            DividerItemDecoration(
-                applicationContext,
-                LinearLayoutManager.VERTICAL
-            )
-        )
         cardListAdapter = CardListAdapter( applicationContext!!,cardList)
         card_list_rec.adapter = cardListAdapter
 
@@ -56,6 +49,11 @@ class CardListActivity : AppCompatActivity() {
     fun deleteCard(cardToken : String){
         requestMap[Common.cardToken] = cardToken
         payment.jsonRemoveCard(requestMap)
+    }
+
+    fun getCardDetail(cardToken : String){
+        requestMap[Common.cardToken] = cardToken
+        payment.jsonGetCardDetail(requestMap)
     }
 
     fun payByCard(cardToken : String){
