@@ -46,6 +46,17 @@ Retrive particular Card Details from the list of cards
     requestMap[Common.mobileNo] = "919003745350"
     requestMap[Common.cardToken] = cardToken
     payment.jsonGetCardDetail(requestMap)
+   
+Pay using particular Card from the list of cards
+
+    val requestMap: HashMap<String, String> = HashMap()
+    requestMap[Common.mobiApiKey] = mobiApiKey.trim { it <= ' ' }
+    requestMap[Common.loginId] = username.trim { it <= ' ' }
+    requestMap[Common.mobileNo] = "919003745350"
+    requestMap[Common.cardToken] = cardToken //Retrive From the Wallet card list
+    requestMap[Common.invoiceId] = "Testing"
+    requestMap[Common.amount] = "1.00"
+    payment.jsonPayByCard(requestMap)
 
 Remove particular Card from the list of cards
 
@@ -54,4 +65,4 @@ Remove particular Card from the list of cards
     requestMap[Common.loginId] = username.trim { it <= ' ' }
     requestMap[Common.mobileNo] = "919003745350"
     requestMap[Common.cardToken] = cardToken
-    payment.jsonGetCardDetail(requestMap)
+    payment.jsonRemoveCard(requestMap)
