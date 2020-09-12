@@ -48,12 +48,12 @@ Callback Inteface Method to receive response from the SDK
 Online payment using Card Details
 
      val requestMap: HashMap<String, String> = HashMap()
-     requestMap[Common.mobileNo] = "12345678
-     requestMap[Common.NameOnCard] = "Mobiversa"
-     requestMap[Common.email] = "test@gomobi.io"
-     requestMap[Common.orderId] = "Testing"
+     requestMap[Common.mobileNo] = "12345678" //Mobile number 
+     requestMap[Common.NameOnCard] = "Mobiversa" //Name in Card
+     requestMap[Common.email] = "test@gomobi.io" //Email Id
+     requestMap[Common.orderId] = "Testing" //Invoice ID for reference
      requestMap[Common.amount] = "2.00" //Amount field must be in 2 decimal format
-     requestMap[Common.postalCode] = "638661"
+     requestMap[Common.postalCode] = "638661" 
      requestMap[Common.firstName] = firstName
      requestMap[Common.lastName] = lastName
      requestMap[Common.shippingState] = "shippingState"
