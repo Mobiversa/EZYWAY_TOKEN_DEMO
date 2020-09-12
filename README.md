@@ -1,6 +1,40 @@
 # EZYWAY_TOKEN_DEMO
 Combination of EZYWAY with EZYPOD
 
+To Communicate with the payment SDK crete the Following Object
+
+     val payment: Payment = Payment()
+     //2nd param paymentResponse is the Interface to receive response in Callback method
+     //3rd param -> Live data as true, Demo data as false
+     Payment.getInstance(this, paymentResponse, false) 
+     
+Callback Inteface Method to receive response from the SDK
+
+    //Payment Connection Interface
+    private val paymentResponse = object : PaymentResponse {
+        override fun getCardList(success: CardList) {
+            //Here List of cards in wallet will receive
+            success.responseData.cardWalletList
+        }
+
+        override fun getCardDetail(success: CardDetail) {
+            //Here Receive data for Particular CardDetail
+        }
+
+        override fun setPaymentSuccess(success: PaymentResult) {
+           //Here Receive Payment Success Result
+
+        }
+
+        override fun setFailure(failure: String) {
+            //If any Error occurs During process response will receive here
+        }
+
+        override fun setRemoveCard(success: RemoveCardPojo) {
+            //If Card removed successfully response will receive here
+        }
+    }
+
 # PAY USING CARD DETAILS
 
 Online payment using Card Details
