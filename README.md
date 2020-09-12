@@ -38,3 +38,20 @@ Retrive the cards list saved in Wallet using Phone Number
     requestMap[Common.mobileNo] = "919003745350"
     payment.jsonGetCardList(requestMap)
     
+Retrive particular Card Details from the list of cards
+
+    val requestMap: HashMap<String, String> = HashMap()
+    requestMap[Common.mobiApiKey] = mobiApiKey.trim { it <= ' ' }
+    requestMap[Common.loginId] = username.trim { it <= ' ' }
+    requestMap[Common.mobileNo] = "919003745350"
+    requestMap[Common.cardToken] = cardToken
+    payment.jsonGetCardDetail(requestMap)
+
+Remove particular Card from the list of cards
+
+    val requestMap: HashMap<String, String> = HashMap()
+    requestMap[Common.mobiApiKey] = mobiApiKey.trim { it <= ' ' }
+    requestMap[Common.loginId] = username.trim { it <= ' ' }
+    requestMap[Common.mobileNo] = "919003745350"
+    requestMap[Common.cardToken] = cardToken
+    payment.jsonGetCardDetail(requestMap)
