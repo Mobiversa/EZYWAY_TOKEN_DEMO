@@ -1,4 +1,4 @@
-# EZYWAY TOKEN DEMO APPLICATION
+# EZYWAY with Save Card Demo Application
 Combination of EZYWAY with EZYPOD
 
 Mandatory Gradle to Communicate with Server and SDK Library you can find under lib folder.
@@ -70,7 +70,7 @@ Online payment using Card Details
 
      payment.jsonUPay(requestMap, cardData)
      
- # WALLET FUNCTIONS
+ # Saved Card Retrive Function
 
 Retrive the cards list saved in Wallet using Phone Number
 
