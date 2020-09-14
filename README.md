@@ -151,7 +151,7 @@ Check Boost Status
     requestMap["aid"] = aid
     paymentActivity.jsonCheckBoostStatus(requestMap)
 
-#FPX Payment
+# FPX Payment
 
 Get Bank List
 
