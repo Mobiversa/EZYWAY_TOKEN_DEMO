@@ -22,6 +22,12 @@ class MainActivity : AppCompatActivity() {
         button_add_card.setOnClickListener {
             startActivity(Intent(this, AddCardActivity::class.java))
         }
+        button_fpx.setOnClickListener {
+            startActivity(Intent(this, FPXActivity::class.java))
+        }
+        button_boost.setOnClickListener {
+            startActivity(Intent(this, BoostActivity::class.java))
+        }
 
     }
 }

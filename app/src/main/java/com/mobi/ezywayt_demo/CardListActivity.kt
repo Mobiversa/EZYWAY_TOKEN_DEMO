@@ -70,6 +70,18 @@ class CardListActivity : AppCompatActivity() {
             cardListAdapter.notifyDataSetChanged()
         }
 
+        override fun checkBoostStatus(success: BoostStatus) {
+            TODO("Not yet implemented")
+        }
+
+        override fun getBankList(success: BankListModel) {
+            TODO("Not yet implemented")
+        }
+
+        override fun getBoostData(success: BoostResponse) {
+            TODO("Not yet implemented")
+        }
+
         override fun getCardDetail(success: CardDetail) {
             result_txt.text = ""+success.responseDescription
         }
@@ -82,6 +94,10 @@ class CardListActivity : AppCompatActivity() {
         override fun setFailure(failure: String) {
             Log.e("Response Failure", "$failure")
             result_txt.text = failure
+        }
+
+        override fun setFpxSuccess(success: FPXPaymentResult) {
+            TODO("Not yet implemented")
         }
 
         override fun setRemoveCard(success: RemoveCardPojo) {

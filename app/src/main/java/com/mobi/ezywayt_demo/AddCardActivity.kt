@@ -90,6 +90,18 @@ class AddCardActivity : AppCompatActivity() {
 
         }
 
+        override fun checkBoostStatus(success: BoostStatus) {
+            TODO("Not yet implemented")
+        }
+
+        override fun getBankList(success: BankListModel) {
+            TODO("Not yet implemented")
+        }
+
+        override fun getBoostData(success: BoostResponse) {
+            TODO("Not yet implemented")
+        }
+
         override fun getCardDetail(cardList: CardDetail) {
             TODO("Not yet implemented")
         }
@@ -102,6 +114,10 @@ class AddCardActivity : AppCompatActivity() {
         override fun setFailure(failure: String) {
             Log.e("Response Failure", "$failure")
             Toast.makeText(applicationContext, failure, Toast.LENGTH_SHORT).show()
+        }
+
+        override fun setFpxSuccess(success: FPXPaymentResult) {
+
         }
 
         override fun setRemoveCard(success: RemoveCardPojo) {
