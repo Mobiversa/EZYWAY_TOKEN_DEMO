@@ -41,6 +41,22 @@ Callback Inteface Method to receive response from the SDK
         override fun setRemoveCard(success: RemoveCardPojo) {
             //If Card removed successfully response will receive here
         }
+
+        override fun getBankList(success: BankListModel) {
+            //Here get the Bank List for FPX payment
+        }
+        
+        override fun setFpxSuccess(success: FPXPaymentResult) {
+            //Here get Success response after payment
+        }
+
+        override fun getBoostData(success: BoostResponse) {
+            //Here get Response to generate Boost QR code
+        }
+        
+        override fun checkBoostStatus(success: BoostStatus) {
+            //Here can check the boost payment status 
+        }
     }
 
 # PAY USING CARD DETAILS
@@ -108,3 +124,65 @@ Remove particular Card from the list of cards
     requestMap[Common.mobileNo] = "919003745350"
     requestMap[Common.cardToken] = cardToken
     payment.jsonRemoveCard(requestMap)
+    
+# Boost Payment Function
+
+Generate Boost QR Code
+
+    Payment.getInstance(this, paymentResponse,true)
+    val paymentActivity: Payment = Payment()
+    val requestMap: HashMap<String, String> = HashMap()
+    requestMap["amount"] = "1.00"
+    requestMap["username"] = "Mobi Demo"
+    requestMap["invoiceId"] = "ORDER001"
+    requestMap["mobiApiKey"] = mobiApiKey.trim { it <= ' ' }
+    requestMap["loginId"] = loginId.trim { it <= ' ' }
+    payment.jsonBoostTransaction(requestMap)
+    
+Boost response will receive in getBoostDataResponse, By using the base64ImageQRCode can generate the QR Image.
+
+
+Check Boost Status
+    Can get the status update of created QRCode. Untill the Payment get success status response will receive in Failure method.
+
+    val requestMap : HashMap<String,String> = HashMap()
+    requestMap["orderId"] = orderId
+    requestMap["trxId"] = trxId
+    requestMap["aid"] = aid
+    paymentActivity.jsonCheckBoostStatus(requestMap)
+
+# FPX Payment
+
+Get Bank List
+
+    To get the bank list there are 2 types of bank, Retail Banking(BankType = 1) and Corporate Banking(BankType = 2)
+    For Retail Banking list access data from BankX ArrayList
+    For Corporate Banking list access data from Bank ArrayList
+
+    //Function Call
+    payment.jsonBankList()
+    
+Payment Using FPX
+
+       //SBI Bank A is working for demo
+       val requestMap: HashMap<String, String> = HashMap()
+       val amount = edit_amount.text.toString()
+       requestMap["amount"] = "1.00"
+       requestMap["city"] = edit_city.text.toString()
+       requestMap["contactName"] = edit_contactName.text.toString()
+       requestMap["postalCode"] = edit_postalCode.text.toString()
+       requestMap["ip"] = edit_ip.text.toString()
+       requestMap["mobileNo"] = "12345678"
+       requestMap["orderId"] = "ORDER001"
+       requestMap["nameOnCard"] = ""
+       requestMap["invoiceId"] = "ORDER001"
+       requestMap["email"] = edit_email.text.toString()
+       requestMap["state"] = edit_state.text.toString()
+       requestMap["orderDesc"] = edit_orderDesc.text.toString()
+       requestMap["mobiApiKey"] = mobiApiKey.trim { it <= ' ' }
+       requestMap["loginId"] = loginId.trim { it <= ' ' }
+       requestMap["bankType"] = bankType //Get from BankList
+       requestMap["bank"] = bankName //Selected bank Name
+       requestMap["buyerName"] = edit_contactName.text.toString()
+       Log.e("Map", "" + requestMap)
+       paymentActivity.jsonPayByFPX(requestMap)
